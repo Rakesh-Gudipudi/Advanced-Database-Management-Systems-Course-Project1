@@ -1,8 +1,10 @@
 # Advanced-Database-Management-Systems-Course-Project1
-CPSC 531 - Advanced Databases 
-RDBMS and Database
-The RDBMS for this project is the Datalog Educational System, or DES.
-The database is Luis Rocha’s Chinook Database, modified for use with DES.
+**CPSC 531 - Advanced Databases **
+
+**RDBMS and Database:**
+
+The RDBMS for this project is the [Datalog Educational System], or DES.
+The database is Luis Rocha’s [Chinook Database], modified for use with DES.
 
 Loading the Database
 Download the database file Chinook_DES.ddb and place it in the same directory where you extracted DES. The database can be loaded with the following command:
