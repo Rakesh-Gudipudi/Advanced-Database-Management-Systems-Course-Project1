@@ -1,0 +1,17 @@
+/DRC
+
+
+%Albums by the artist “Red Hot Chili Peppers.”
+{Title | (exists ArtistId,Name,AlbumId,AId)('Artist'(ArtistId,Name) and 'Album'(AlbumId,Title,AId) and Name = 'Red Hot Chili Peppers' and ArtistId = AId)}
+
+%Genres associated with the artist “U2.”
+{ N | exists AId,AN,TId,AlId,GId 'Artist'(AId,AN) and 'Album'(AlId,_,AId) and 'Track'(TId,_,AlId,_,GId,_,_,_,_) and 'Genre'(GId,N) and AN = 'U2'}
+
+%Names of tracks on playlist “Grunge” and their associated artists and albums.
+{ TN,ArN,AlT | exists PId,TId,ArId,AlId 'Playlist'(PId,'Grunge') and 'PlaylistTrack'(PId,TId) and 'Track'(TId,TN,AlId,_,_,_,_,_,_) and 'Album'(AlId,AlT,ArId) and 'Artist'(ArId,ArN)}
+
+%Names and email addresses of customers who bought tracks in playlist “TV Shows.”
+{ F,L,E | exists Cid,Iid,Tid,Pid 'Customer'(Cid,F,L,_,_,_,_,_,_,_,_,E,_) and 'Invoice'(Iid,Cid,_,_,_,_,_,_,_) and 'InvoiceLine'(_,Iid,Tid,_,_) and 'Track'(Tid,_,_,_,_,_,_,_,_) and 'PlaylistTrack'(Pid,Tid) and 'Playlist'(Pid,'TV Shows')}
+
+%Names of the support representatives whose customers bought tracks in “Purchased AAC audio file” format.
+{ Efn,Eln | exists Eid,Cid,IId,TId,MId 'Employee'(Eid,Eln,Efn,_,_,_,_,_,_,_,_,_,_,_,_) and 'Customer'(Cid,_,_,_,_,_,_,_,_,_,_,_,Eid) and 'Invoice'(IId,Cid,_,_,_,_,_,_,_) and 'InvoiceLine'(_,IId,TId,_,_) and 'Track'(TId,_,_,MId,_,_,_,_,_) and 'MediaType'(MId,'Purchased AAC audio file')}

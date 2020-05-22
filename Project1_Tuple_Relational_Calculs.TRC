@@ -1,0 +1,16 @@
+/TRC
+
+%Albums by the artist “Red Hot Chili Peppers.”
+{S.Title |'Album'(S) and (exists R)('Artist'(R) and S.ArtistId = R.ArtistId and R.Name ='Red Hot Chili Peppers')}
+
+%Genres associated with the artist “U2.”
+{G.Name |'Genre'(G) and (exists S,R,T)('Album'(S) and 'Artist'(R) and 'Track'(T)  and S.ArtistId = R.ArtistId and S.AlbumId = T.AlbumId and T.GenreId = G.GenreId and R.Name ='U2')}
+
+%Names of tracks on playlist “Grunge” and their associated artists and albums.
+{T.Name,Ar.Name,A.Title | 'Artist'(Ar) and 'Album'(A) and 'Track'(T) and (exists P,Pl) ('Playlist'(P) and 'PlaylistTrack'(Pl) and P.PlaylistId = Pl.PlaylistId and Pl.TrackId = T.TrackId and T.AlbumId = A.AlbumId and A.ArtistId = Ar.ArtistId and P.Name = 'Grunge')}
+
+%Names and email addresses of customers who bought tracks in playlist “TV Shows.”
+{C.FirstName,C.LastName,C.Email | 'Customer'(C) and (exists I,Il,T,Pl,P)('Invoice'(I) and 'InvoiceLine'(Il) and 'Track'(T) and 'PlaylistTrack'(Pl) and 'Playlist'(P) and C.CustomerId = I.CustomerId and I.InvoiceId = Il.InvoiceId and Il.TrackId = T.TrackId and T.TrackId = Pl.TrackId and Pl.PlaylistId = P.PlaylistId and P.Name = 'TV Shows')}
+
+%Names of the support representatives whose customers bought tracks in “Purchased AAC audio file” format.
+{S.FirstName,S.LastName | 'Employee'(S) and (exists M,T,Il,I,C) ('MediaType'(M) and 'Track'(T) and 'InvoiceLine'(Il) and 'Invoice'(I) and 'Customer'(C) and M.MediaTypeId = T.MediaTypeId and T.TrackId = Il.TrackId and Il.InvoiceId = I.InvoiceId and I.CustomerId = C.CustomerId and C.SupportRepId = S.EmployeeId and M.Name = 'Purchased AAC audio file')}
