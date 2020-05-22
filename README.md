@@ -3,7 +3,7 @@
 
 **RDBMS and Database:**
 
-The RDBMS for this project is the [Datalog Educational System], or DES.
+The RDBMS for this project is the [Datalog Educational System](http://des.sourceforge.net), or DES.
 The database is Luis Rocha’s [Chinook Database](https://github.com/lerocha/chinook-database), modified for use with DES.
 
 Loading the Database
