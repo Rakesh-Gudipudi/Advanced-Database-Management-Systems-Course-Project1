@@ -1,4 +1,4 @@
-# Advanced-Database-Management-Systems-Course-Projects
+# Advanced-Database-Management-Systems-Course-Project1
 CPSC 531 - Advanced Databases 
 RDBMS and Database
 The RDBMS for this project is the Datalog Educational System, or DES.
